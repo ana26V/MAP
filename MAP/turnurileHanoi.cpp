@@ -1,8 +1,7 @@
 ﻿#include<iostream>
-
 #include<conio.h>
-
 using namespace std;
+
 void turnurileHanoi(int n, char tija_init, char tija_finala,char tija_aux)
 {
     if (!n) {
@@ -14,6 +13,7 @@ void turnurileHanoi(int n, char tija_init, char tija_finala,char tija_aux)
 
     turnurileHanoi(n - 1, tija_aux, tija_finala, tija_init);
 }
+
 void reguli()
 {
     system("color b");
@@ -21,9 +21,9 @@ void reguli()
     
     cout << "||\t\t\t\tTurnurile din Hanoi                                                ||\n" << endl;
     cout << "||\tSe dau trei tije A, B, C si N discuri de diametre diferite, stivuite initial pe tija A     ||\n"
-        "||\tin ordinea descrescatoare a diametrelor, formand un con. Ss se determine secventa de       ||\n"
-        "||\tmutari ale discurilor de pe tija initială A catre tija finala C, folosind B ca tija ,      ||\n"
-        "||\tavand în vedere urmatoarele restrictii :                                                   ||\n"
+        "||\tin ordinea descrescatoare a diametrelor, formand un con. Sa se determine secventa de       ||\n"
+        "||\tmutari ale discurilor de pe tija initiala A catre tija finala C, folosind B ca tija ,      ||\n"
+        "||\tavand in vedere urmatoarele restrictii :                                                   ||\n"
         "||\t  a. la fiecare miscare se va muta un singur disc                                          ||\n"
         "||\t  b. un disc se poate plasa doar asupra unui disc mai mare ca diametru.                    ||" << endl;
     cout << "| ==================================================================================================|" << endl;
@@ -33,7 +33,7 @@ void reguli()
 void play()
 {
     int N,iar;
-   
+    system("color 9");
     do {
         cout << "Cate discuri?\n n= ";
         
@@ -42,16 +42,19 @@ void play()
     turnurileHanoi(N, 'A', 'C', 'B');
     do {
         cout << "\nJucati din nou? (1-da, 0-nu): "; cin >> iar;
-        if (iar == 1)
+        if (iar == 1) {
+            system("pause");
+            system("cls");
             play();
+          
+        }
         else  if (iar==0) {
             cout << "Joc incheiat..." << endl;
-            break;
+            exit(1);
+            
         }
         else cout << "Trebuia ales 1 sau 0!" << endl;
-    } while (iar!=0 && iar!=1);
-    system("pause");
-      system("cls");
+    } while (iar!=0 || iar!=1);
 
 }
 
@@ -64,12 +67,13 @@ void meniu()
         cout << "2. Alege un numar de discuri." << endl;
         cout << "0. Iesire..." << endl;
        
-        cout << "Optiune: "; cin >> opt;
-
+        do {
+            cout << "Optiune: ";// cin >> opt;
+        } while (scanf_s("%d", &opt) != 1 && getchar() != '\n');
         switch (opt)
         {   
         case iesire:
-            exit(1);
+            cout << "Joc incheiat..." << endl;
             break;
         case reg:
             reguli();
@@ -78,10 +82,10 @@ void meniu()
             play();
             break;
         default:
-            cout << "Optiune gersita!" << endl;
+            cout << "Optiune gresita!" << endl;
             break;
         }
-    } while (1);
+    } while (opt!=0);
 }
 
 int main()
