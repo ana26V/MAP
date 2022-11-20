@@ -10,4 +10,14 @@ Un disc mai mare nu poate fi poziționat deasupra unui disc mai mic.
 
 
 2) Algoritmul de rezolvare :
+ 
+Se muta discul „N-1” de la „A” la „B”, folosind C.
+Se muta ultimul disc de la „A” la „C”.
+Se muta discul „N-1” de la „B” la „C”, folosind A.
 
+Bibliografie:
+https://recurssion.weebly.com/turnul-din-hanoi.html
+https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/
+https://youtu.be/q6RicK1FCUs?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O
+https://docs.docker.com/get-started/overview/
+https://www.simplilearn.com/tutorials/git-tutorial
